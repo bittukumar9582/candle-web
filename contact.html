@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Sparkling Aroma Candles</title>
+    <style>
+       
+       body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4d2d2;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: #464545;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.header .logo {
+    text-align: center;
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+}
+
+.nav ul li {
+    margin: 0 15px;
+}
+
+.nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav ul li a:hover,
+.nav ul li a.active {
+    color: #ff8c00;
+}
+
+.contact {
+    padding: 40px 0;
+    background-color: #f3d6d6;
+}
+
+.contact-form {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form h2 {
+    margin-bottom: 20px;
+    color: #ff8c00;
+    font-size: 2rem;
+}
+
+.contact-form p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.success-message {
+    color: green;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+    </style>
+
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Sparkling Aroma Candles</h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="product.html">Products</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contact">
+        <div class="container">
+            <section class="contact-form">
+                <h2>Contact Us</h2>
+                <p>If you have any questions or feedback, feel free to reach out to us using the form below.</p>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                    <p class="success-message" id="successMessage"></p>
+                    <p class="error-message" id="errorMessage"></p>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Sparkling Aroma Candles. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+
+    if (!name || !email || !message) {
+        errorMessage.textContent = 'Please fill out all fields.';
+        successMessage.textContent = '';
+        return;
+    }
+
+    if (!validateEmail(email)) {
+        errorMessage.textContent = 'Please enter a valid email address.';
+        successMessage.textContent = '';
+        return;
+    }
+
+    errorMessage.textContent = '';
+    successMessage.textContent = 'Thank you for contacting us! We will get back to you shortly.';
+
+    // submission form
+    setTimeout(() => {
+        document.getElementById('contactForm').reset();
+        successMessage.textContent = '';
+    }, 3000);
+});
+
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+// this is a responsive form
+window.addEventListener('resize', function () {
+    const formGroups = document.querySelectorAll('.form-group');
+    const isMobile = window.innerWidth < 768;
+
+    formGroups.forEach(group => {
+        group.style.marginBottom = isMobile ? '20px' : '15px';
+    });
+});
+
+    </script>
+</body>
+</html>

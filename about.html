@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Sparkling Aroma Candles</title>
+    <style>
+        /* General Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+/* Header Styles */
+.header {
+    background-color: #49362d;
+    padding: 1px 0;
+    box-shadow: 0px 2px 5px rgb(252, 175, 175);
+}
+
+.header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f8e2e2;
+}
+
+.header .nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.header .nav ul li a {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5px 10px;
+    color: #c2b4b4;
+}
+
+.header .nav ul li a.active,
+.header .nav ul li a:hover {
+    color: #fff;
+    background-color: #e6a038;
+    border-radius: 5px;
+}
+
+/* About Section */
+.about {
+    padding: 60px 0;
+    background-color: #fddfdf;
+}
+
+.about-content {
+    margin-bottom: 40px;
+}
+
+.about-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about-content p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.about-image img {
+    max-width: 60%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-left: 245px;
+}
+
+/* Footer Styles */
+.footer_widgets {
+    background: linear-gradient(to bottom, rgb(62, 57, 57), rgb(19, 19, 18));
+    color: #ffffff;
+    padding: 50px 0;
+}
+
+.footer_widgets h3 {
+    font-size: 1.5rem;
+    color: #f8e71c;
+    margin-bottom: 20px;
+    justify-content: center;
+    display: flex;
+}
+
+.footer_contact p {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.footer_contact ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.footer_contact ul li a {
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.footer_contact ul li a:hover {
+    color: #ffc107;
+    transform: scale(1.1);
+}
+
+.footer_menu ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 46.5%;
+}
+
+.footer_menu ul li {
+    margin-bottom: 10px;
+}
+
+.footer_menu ul li a {
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+.footer_menu ul li a:hover {
+    color: #ffc107;
+}
+
+.product_widget .simple_product_items {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.simple_product_thumb img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.simple_product_content .product_name h3 {
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+.simple_product_content .product_price .old_price {
+    text-decoration: line-through;
+    color: #888888;
+}
+
+.simple_product_content .product_price .current_price {
+    color: #f8e71c;
+    font-weight: bold;
+}
+
+.footer_bottom {
+    border-top: 1px solid #444;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header .nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .about-content,
+    .about-image {
+        text-align: center;
+    }
+
+    .footer_widgets .footer_top .row {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .header .logo {
+        font-size: 1.5rem;
+    }
+
+    .header .nav ul li a {
+        font-size: 0.9rem;
+    }
+
+    .about-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .footer_widgets h3 {
+        font-size: 1.2rem;
+    }
+}
+
+    </style>
+
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Sparkling Aroma Candles</h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="product.html">Product</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="about">
+        <div class="container">
+            <section class="about-content">
+                <h2>About Us</h2>
+                <p>
+                    Welcome to Sparkling Aroma Candles! We are dedicated to creating premium-quality candles
+                    that infuse your space with delightful fragrances and warm, soothing light. Our candles are
+                    handcrafted with care, using the finest ingredients to ensure a long-lasting and luxurious
+                    experience.
+                </p>
+                <p>
+                    At Sparkling Aroma Candles, we believe in sustainability and artistry. Each candle is designed
+                    to bring joy, relaxation, and a touch of elegance to your home. Whether you're looking for a
+                    gift or a treat for yourself, our collection has something special for everyone.
+                </p>
+                <p>
+                    Thank you for supporting our journey. Together, let's light up the world, one candle at a time!
+                </p>
+            </section>
+            <section class="about-image">
+                <img src="./images/PhotoRoom-20250105_191134.png" alt="Sparkling Aroma Candles">
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer_widgets footer_black">
+        <div class="container">
+            <div class="footer_top">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-8">
+                        <div class="widgets_container contact_us">
+                            <h3>Sparkling Aroma Candles</h3>
+                            <div class="footer_contact">
+                                <p>Address : #299/1, Shanti Nagar, Hongasandra, Bommanahalli, Bangalore south 560068</p>
+                                <p>Phone : <a href="tel:(+91) 9330324804">(+91) 8787882343</a></p>
+                                <p>Email : sparklingaroma8@gmail.com</p>
+                                <ul>
+                                    <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                                    <li><a href="https://www.instagram.com/sparkling_aroma_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="ion-social-instagram"></i></a></li>
+                                    <li><a href="#"><i class="ion-social-linkedin"></i></a></li>
+                                    <li><a href="#"><i class="ion-social-youtube"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-4 col-6">
+                        <div class="widgets_container widget_menu">
+                            <h3>Information</h3>
+                            <div class="footer_menu">
+                                <ul>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="collection.html">Collection</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-5 col-6">
+                        <div class="widgets_container widget_menu">
+                            <h3>My Account</h3>
+                            <div class="footer_menu">
+                                <ul>
+                                    <li><a href="myaccount.html">My Account</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                    <li><a href="checkout.html">Checkout</a></li>
+                                    <li><a href="question.html">Frequently Questions</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-7">
+                        <div class="widgets_container product_widget">
+                            <h3>Top Rated Products</h3>
+                            <div class="simple_product">
+                                <div class="simple_product_items">
+                                    <div class="simple_product_thumb">
+                                        <a href="#"><img src="./images/PhotoRoom-20250105_185747.png" alt=""></a>
+                                    </div>
+                                    <div class="simple_product_content">
+                                        <div class="tag_cate">
+                                            <a href="#">Women,</a>
+                                            <a href="#">Earrings</a>
+                                        </div>
+                                        <div class="product_name">
+                                            <h3><a href="#"> Bubble Candles</a></h3>
+                                        </div>
+                                        <div class="product_price">
+                                            <span class="old_price">Rs. 799</span>
+                                            <span class="current_price">Rs. 699</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="simple_product_items">
+                                    <div class="simple_product_thumb">
+                                        <a href="#"><img src="./images/PhotoRoom-20250105_181621.png" alt=""></a>
+                                    </div>
+                                    <div class="simple_product_content">
+                                        <div class="tag_cate">
+                                            <a href="#">Men,</a>
+                                            <a href="#">Earrings</a>
+                                        </div>
+                                        <div class="product_name">
+                                            <h3><a href="#">Caremine Candle</a></h3>
+                                        </div>
+                                        <div class="product_price">
+                                            <span class="old_price">Rs. 899</span>
+                                            <span class="current_price">Rs. 749</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="copyright_area">
+                            <p>Copyright &copy; 2025 <a href="#">Sparkling Aroma Candles</a> All rights Reserved.</p>
+                            <img src="images/icon/papyel2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

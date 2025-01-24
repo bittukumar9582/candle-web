@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #007BFF;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            display: none;
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .faq-question:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .faq-container {
+                padding: 15px;
+            }
+
+            .faq-question {
+                font-size: 1rem;
+            }
+
+            .faq-answer {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Frequently Asked Questions</h1>
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(this)">What is your return policy?</div>
+            <div class="faq-answer">You can return any item within 30 days of purchase for a full refund.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(this)">How long does shipping take?</div>
+            <div class="faq-answer">Shipping typically takes 5-7 business days depending on your location.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(this)">Do you offer international shipping?</div>
+            <div class="faq-answer">Yes, we offer international shipping to select countries. Please check our shipping policy for details.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(this)">Can I track my order?</div>
+            <div class="faq-answer">Yes, once your order is shipped, you will receive a tracking number via email.</div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnswer(questionElement) {
+            const answerElement = questionElement.nextElementSibling;
+            const isVisible = answerElement.style.display === 'block';
+
+            document.querySelectorAll('.faq-answer').forEach(answer => {
+                answer.style.display = 'none';
+            });
+
+            answerElement.style.display = isVisible ? 'none' : 'block';
+        }
+    </script>
+
+</body>
+</html>

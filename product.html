@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Sparkling Aroma Candles</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background-color: #242422;
+            padding: 2px 0;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f5ebeb;
+        }
+
+        .header .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .header .nav ul li a {
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 5px 17px;
+            color: whitesmoke;
+        }
+
+        .header .nav ul li a:hover {
+            color: #fff;
+            background-color: #f79553;
+            border-radius: 5px;
+        }
+
+        /* Product Section */
+        .products {
+            padding: 60px 0;
+            background-color: #dbd8d8;
+        }
+
+        .products h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .product-filters {
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .product-filters button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .product-filters button:hover {
+            background-color: #f8e71c;
+            color: #333;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-card .product-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .product-card .product-info h3 {
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .product-card .product-info .price {
+            margin: 5px 0;
+            color: #da8b13;
+            font-weight: bold;
+        }
+
+        .product-card .product-info .old-price {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .product-card .product-info button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .product-card .product-info button:hover {
+            background-color: #f8e71c;
+            color: #333;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1e1e1e;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #f8e71c;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header .nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Sparkling Aroma Candles</h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Products Section -->
+    <main class="products">
+        <div class="container">
+            <h2>Our Products</h2>
+
+            <!-- Filter Buttons -->
+            <div class="product-filters">
+                <button>All</button>
+                <button>Candles</button>
+                <button>Gift Sets</button>
+                <button>Accessories</button>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid">
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <img src="./images/PhotoRoom-20250105_181047.png" alt="Bubble Candle">
+                    <div class="product-info">
+                        <h3>Bubble Candle</h3>
+                        <p class="price">
+                            <span class="old-price">Rs. 799</span> Rs. 699
+                        </p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card">
+                    <img src="./images/PhotoRoom-20250105_181621.png" alt="Caremine Candle">
+                    <div class="product-info">
+                        <h3>Caremine Candle</h3>
+                        <p class="price">
+                            <span class="old-price">Rs. 699</span> Rs. 649
+                        </p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card">
+                    <img src="./images/PhotoRoom-20250105_191134.png" alt="Gift Set">
+                    <div class="product-info">
+                        <h3>Gift Candle Set</h3>
+                        <p class="price">
+                            <span class="old-price">Rs. 999</span> Rs. 899
+                        </p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Sparkling Aroma Candles. All rights reserved.</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const filterButtons = document.querySelectorAll(".product-filters button");
+            const productCards = document.querySelectorAll(".product-card");
+            const cart = [];
+    
+            filterButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const category = button.innerText.toLowerCase();
+    
+                    productCards.forEach(card => {
+                        const isVisible = 
+                            category === "all" || 
+                            card.querySelector("h3").innerText.toLowerCase().includes(category);
+    
+                        card.style.display = isVisible ? "block" : "none";
+                    });
+                });
+            });
+    
+            productCards.forEach(card => {
+                const addButton = card.querySelector("button");
+                addButton.addEventListener("click", () => {
+                    const productName = card.querySelector("h3").innerText;
+                    const productPrice = card.querySelector(".price").innerText;
+    
+                    cart.push({ name: productName, price: productPrice });
+                    alert(`${productName} added to your cart!`);
+                    console.log(cart); 
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>

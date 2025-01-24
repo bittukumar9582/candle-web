@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Candles</title>
+
+    <style>
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #fff8f8;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.navbar {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar a.active, .navbar a:hover {
+    background-color: #555;
+}
+
+.bubble-candles {
+    padding: 2rem;
+    text-align: center;
+}
+
+.bubble-candles h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.bubble-candles p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.bubble-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.bubble-item {
+    background-color: #f9e1e1;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.bubble-item:hover {
+    transform: scale(1.05);
+}
+
+.bubble-item img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.bubble-item h2 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+    color: #444;
+}
+
+.bubble-item p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.bubble-item button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.bubble-item button:hover {
+    background-color: #555;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bubble-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bubble-item {
+        width: 90%;
+    }
+}
+
+    </style>
+</head>
+<body>
+  <header>
+        <nav>
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="bubble.html" class="active">Bubble Candles</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="bubble-candles">
+            <h1>Bubble Candle Collection</h1>
+            <p>Discover the fun and whimsical world of bubble candles.</p>
+
+            <div class="bubble-container">
+                <div class="bubble-item">
+                    <img src="./images/PhotoRoom-20250105_182047.png" alt="Bubble Candle Pastel">
+                    <h2>Pastel Bubble Candle</h2>
+                    <p>Add a soft touch of color to your decor with this pastel bubble candle.</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="bubble-item">
+                    <img src="./images/PhotoRoom-20250106_140225.png" alt="Bubble Candle Bright">
+                    <h2>Bright Bubble Candle</h2>
+                    <p>Brighten up any space with our vibrant bubble candles.</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="bubble-item">
+                    <img src="./images/PhotoRoom-20250106_141349.png" alt="Bubble Candle Neutral">
+                    <h2>Neutral Bubble Candle</h2>
+                    <p>Perfect for minimalist decor, this neutral bubble candle adds a subtle charm.</p>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Candle Creations. All rights reserved.</p>
+    </footer>
+
+    <script>
+       document.addEventListener("DOMContentLoaded", () => {
+    // here Cart functionality code
+    const cart = [];
+    const buyButtons = document.querySelectorAll(".bubble-item button");
+
+    buyButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const itemDetails = getItemDetails(button.closest(".bubble-item"));
+            cart.push(itemDetails);
+            alert(`${itemDetails.name} has been added to your cart!`);
+            updateCartUI();
+        });
+    });
+
+    // I added  Wishlist functionality
+    const wishlist = [];
+    const bubbleItems = document.querySelectorAll(".bubble-item");
+
+    bubbleItems.forEach(item => {
+        const wishlistButton = document.createElement("button");
+        wishlistButton.textContent = "Add to Wishlist";
+        wishlistButton.classList.add("wishlist-button");
+
+        wishlistButton.addEventListener("click", () => {
+            const itemDetails = getItemDetails(item);
+            if (!wishlist.find(w => w.name === itemDetails.name)) {
+                wishlist.push(itemDetails);
+                alert(`${itemDetails.name} has been added to your wishlist!`);
+                updateWishlistUI();
+            } else {
+                alert(`${itemDetails.name} is already in your wishlist.`);
+            }
+        });
+
+        item.appendChild(wishlistButton);
+    });
+
+    function getItemDetails(itemElement) {
+        const name = itemElement.querySelector("h2").textContent;
+        const description = itemElement.querySelector("p").textContent;
+        const imageSrc = itemElement.querySelector("img").src;
+        return { name, description, imageSrc };
+    }
+
+    function updateCartUI() {
+        console.log("Cart:", cart);
+    }
+
+    function updateWishlistUI() {
+        console.log("Wishlist:", wishlist);
+    }
+});
+
+    </script>
+</body>
+</html>

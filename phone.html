@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Phone and Email</title>
+
+    <style>
+       body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0dbdb;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .header {
+        background-color: #222;
+        color: #fff;
+        padding: 20px 0;
+    }
+
+    .header .logo {
+        text-align: center;
+        font-size: 1.8rem;
+        margin: 0;
+    }
+
+    .nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+        margin: 10px 0 0;
+    }
+
+    .nav ul li {
+        margin: 0 15px;
+    }
+
+    .nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.3s;
+    }
+
+    .nav ul li a:hover,
+    .nav ul li a.active {
+        color: #ff8c00;
+    }
+
+    .contact {
+        padding: 40px 0;
+        background-color: #f0dbdb;
+    }
+
+    .contact-info {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .contact-info h2 {
+        margin-bottom: 20px;
+        color: #ff8c00;
+        font-size: 2rem;
+    }
+
+    .contact-info p {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+    }
+
+    .info-group {
+        margin-bottom: 20px;
+    }
+
+    .info-group h3 {
+        margin-bottom: 5px;
+        font-size: 1.2rem;
+        color: #007BFF;
+    }
+
+    .info-group p {
+        margin: 0;
+        font-size: 1rem;
+    }
+
+    .info-group a {
+        color: #007BFF;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+
+    .info-group a:hover {
+        text-decoration: underline;
+    }
+
+    .footer {
+        background-color: #222;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 20px;
+    }
+
+    .footer p {
+        margin: 0;
+        font-size: 0.9rem;
+    }
+    </style>
+
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Sparkling Aroma Candles</h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="phone.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contact">
+        <div class="container">
+            <section class="contact-info">
+                <h2>Contact Us</h2>
+                <p>You can reach us through the following methods:</p>
+                <div class="info-group">
+                    <h3>Phone</h3>
+                    <p><a href="tel:+1234567890">+91 8787882343</a></p>
+                </div>
+                <div class="info-group">
+                    <h3>Email</h3>
+                    <p><a href="mailto:support@sparklingaromacandles.com">sparklingaroma8@gmail.com</a></p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Sparkling Aroma Candles. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const phoneLink = document.querySelector('a[href^="tel:"]');
+    const emailLink = document.querySelector('a[href^="mailto:"]');
+
+    phoneLink.addEventListener('click', (e) => {
+        alert('You are about to call us at ' + phoneLink.textContent);
+    });
+
+    emailLink.addEventListener('click', (e) => {
+        alert('You are about to send an email to ' + emailLink.textContent);
+    });
+
+    console.log('Contact page loaded and interactive links set up.');
+});
+
+    </script>
+</body>
+</html>

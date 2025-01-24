@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="checkout-container">
+        <h1>Checkout</h1>
+        <div id="cart-summary">
+            <!-- Cart summary will be inserted here -->
+        </div>
+        
+        <!-- Payment Form -->
+        <h2>Payment Details</h2>
+        <form id="payment-form" action="process_checkout.php" method="POST">
+            <label for="card-name">Card Name</label>
+            <input type="text" id="card-name" name="card-name" required><br><br>
+
+            <label for="card-number">Card Number</label>
+            <input type="text" id="card-number" name="card-number" required><br><br>
+
+            <label for="expiry-date">Expiry Date</label>
+            <input type="text" id="expiry-date" name="expiry-date" required><br><br>
+
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" name="cvv" required><br><br>
+
+            <button type="submit">Submit Payment</button>
+        </form>
+    </div>
+
+    <script>
+        // Retrieve cart data from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const cartData = JSON.parse(decodeURIComponent(urlParams.get('cart')));
+        
+        // Render the cart summary
+        const cartSummary = document.getElementById('cart-summary');
+        let totalAmount = 0;
+        let cartList = '<ul>';
+        cartData.forEach(item => {
+            let itemTotal = item.price * item.quantity;
+            cartList += `<li>${item.name} - ${item.quantity} x ₹${item.price} = ₹${itemTotal}</li>`;
+            totalAmount += itemTotal;
+        });
+        cartList += '</ul>';
+        cartSummary.innerHTML = cartList + `<strong>Total: ₹${totalAmount}</strong>`;
+    </script>
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Featured Candles</title>
+    <style>
+      /* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header and Navigation */
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+}
+
+.navbar li a {
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.navbar li a:hover,
+.navbar li a.active {
+    background: #007bff;
+    color: #fff;
+}
+
+.navbar-toggle {
+    display: none;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+/* Featured Candles Section */
+.featured-candles {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.featured-candles h1 {
+    font-size: 2.5rem;
+    color: #222;
+    margin-bottom: 30px;
+}
+
+.candles-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.candle-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.candle-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.candle-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.candle-item h2 {
+    font-size: 1.5rem;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.candle-item p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.candle-item button {
+    background: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.candle-item button:hover {
+    background: #0056b3;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .candles-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background: #333;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        border-top: 1px solid #444;
+    }
+
+    .navbar.open {
+        display: flex;
+    }
+
+    .navbar li a {
+        text-align: center;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+}
+
+/* Footer Styles */
+
+.footer_widgets {
+    background-color: #2c2c2c;
+    color: #fff;
+    padding: 50px 20px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer_widgets h3 {
+    font-size: 1.5rem;
+    color: #f8e71c;
+    margin-bottom: 20px;
+}
+
+.footer_contact p,
+.footer_menu ul li a,
+.product_widget .product_name h3 a {
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.footer_contact p a {
+    color: #f8e71c;
+    text-decoration: none;
+}
+
+.footer_contact ul {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer_contact ul li a {
+    font-size: 1.2rem;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.footer_contact ul li a:hover {
+    color: #f8e71c;
+}
+
+.footer_menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer_menu ul li {
+    margin-bottom: 10px;
+}
+
+.footer_menu ul li a:hover {
+    color: #f8e71c;
+    text-decoration: underline;
+}
+
+.product_widget .simple_product_items {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.product_widget .simple_product_thumb img {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.product_widget .tag_cate a {
+    font-size: 0.85rem;
+    color: #f8e71c;
+    margin-right: 5px;
+}
+
+.product_widget .product_price {
+    margin-top: 5px;
+}
+
+.product_widget .product_price .old_price {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 10px;
+}
+
+.product_widget .product_price .current_price {
+    color: #f8e71c;
+    font-weight: bold;
+}
+
+/* Footer Bottom */
+.footer_bottom {
+    margin-top: 30px;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.copyright_area p {
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+.copyright_area img {
+    width: 100px;
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .footer_top .col-lg-4,
+    .footer_top .col-lg-2 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer_top .col-lg-4,
+    .footer_top .col-lg-2 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .footer_contact ul {
+        justify-content: center;
+    }
+
+    .footer_contact ul li {
+        margin: 0 10px;
+    }
+}   
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="featured.html" class="active">Featured</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="featured-candles">
+            <h1>Our Featured Candles</h1>
+            <div class="candles-container">
+                <div class="candle-item">
+                    <img src="./images/PhotoRoom-20250105_174520.png" alt="Vanilla Bliss Candle">
+                    <h2>Vanilla Bliss</h2>
+                    <p>A delightful vanilla-scented candle to brighten your day.</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="candle-item">
+                    <img src="images/PhotoRoom-20250105_175346.png" alt="Lavender Dreams Candle">
+                    <h2>Lavender Dreams</h2>
+                    <p>Relax with the soothing aroma of lavender.</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="candle-item">
+                    <img src="./images/PhotoRoom-20250105_181821.png" alt="Citrus Zest Candle">
+                    <h2>Citrus Zest</h2>
+                    <p>Freshen up your space with a burst of citrus.</p>
+                    <button>Buy Now</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer_widgets footer_black">
+        <div class="container">
+            <div class="footer_top">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-8">
+                        <div class="widgets_container contact_us">
+                            <h3>Sparkling Aroma Candles</h3>
+                            <div class="footer_contact">
+                                <p>Address : #299/1, Shanti Nagar, Hongasandra, Bommanahalli, Bangalore south 560068</p>
+                                <p>Phone : <a href="tel:(+91) 9330324804">(+91) 8787882343</a></p>
+                                <p>Email : sparklingaroma8@gmail.com</p>
+                                <ul>
+                                    <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                                    <li><a href="https://www.instagram.com/sparkling_aroma_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="ion-social-instagram"></i></a></li>
+                                    <li><a href="#"><i class="ion-social-linkedin"></i></a></li>
+                                    <li><a href="#"><i class="ion-social-youtube"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-4 col-6">
+                        <div class="widgets_container widget_menu">
+                            <h3>Information</h3>
+                            <div class="footer_menu">
+                                <ul>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="collection.html">Collection</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-5 col-6">
+                        <div class="widgets_container widget_menu">
+                            <h3>My Account</h3>
+                            <div class="footer_menu">
+                                <ul>
+                                    <li><a href="myaccount.html">My Account</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                    <li><a href="checkout.html">Checkout</a></li>
+                                    <li><a href="question.html">Frequently Questions</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-7">
+                        <div class="widgets_container product_widget">
+                            <h3>Top Rated Products</h3>
+                            <div class="simple_product">
+                                <div class="simple_product_items">
+                                    <div class="simple_product_thumb">
+                                        <a href="#"><img src="./images/PhotoRoom-20250105_185747.png" alt=""></a>
+                                    </div>
+                                    <div class="simple_product_content">
+                                        <div class="tag_cate">
+                                            <a href="#">Women,</a>
+                                            <a href="#">Earrings</a>
+                                        </div>
+                                        <div class="product_name">
+                                            <h3><a href="#"> Bubble Candles</a></h3>
+                                        </div>
+                                        <div class="product_price">
+                                            <span class="old_price">Rs. 799</span>
+                                            <span class="current_price">Rs. 699</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="simple_product_items">
+                                    <div class="simple_product_thumb">
+                                        <a href="#"><img src="./images/PhotoRoom-20250105_181621.png" alt=""></a>
+                                    </div>
+                                    <div class="simple_product_content">
+                                        <div class="tag_cate">
+                                            <a href="#">Men,</a>
+                                            <a href="#">Earrings</a>
+                                        </div>
+                                        <div class="product_name">
+                                            <h3><a href="#">Caremine Candle</a></h3>
+                                        </div>
+                                        <div class="product_price">
+                                            <span class="old_price">Rs. 899</span>
+                                            <span class="current_price">Rs. 749</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="copyright_area">
+                            <p>Copyright &copy; 2025 <a href="#">Sparkling Aroma Candles</a> All rights Reserved.</p>
+                            <img src="images/icon/papyel2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const buyButtons = document.querySelectorAll(".candle-item button");
+
+    buyButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const candleName = button.parentElement.querySelector("h2").textContent;
+            alert(`Thank you for choosing the ${candleName} candle!`);
+        });
+    });
+
+    const navbar = document.querySelector(".navbar");
+    const toggleButton = document.createElement("button");
+    toggleButton.textContent = "☰";
+    toggleButton.classList.add("navbar-toggle");
+    
+    toggleButton.addEventListener("click", () => {
+        navbar.classList.toggle("open");
+    });
+
+    document.querySelector("header").appendChild(toggleButton);
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) {
+            navbar.classList.remove("open");
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

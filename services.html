@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candle Services</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff9f4;
+            color: #4a4a4a;
+        }
+
+        header {
+            background-color: #f5e1da;
+            color: #4a2d2b;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .service-card-content {
+            padding: 20px;
+        }
+
+        .service-card-content h3 {
+            margin-top: 0;
+            font-size: 1.6rem;
+            color: #4a2d2b;
+        }
+
+        .service-card-content p {
+            margin: 10px 0;
+            font-size: 1rem;
+            color: #6d6d6d;
+            line-height: 1.6;
+        }
+
+        .service-card-content button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #ffffff;
+            background-color: #4a2d2b;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .service-card-content button:hover {
+            background-color: #a34a40;
+        }
+
+        /* Dynamic Details Section */
+        .details-section {
+            margin-top: 40px;
+            padding: 20px;
+            background: #f9f4ef;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .details-section h2 {
+            font-size: 2rem;
+            color: #4a2d2b;
+            margin-bottom: 10px;
+        }
+
+        .details-section p {
+            font-size: 1rem;
+            color: #6d6d6d;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: #4a2d2b;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: #f5e1da;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Our Candle Services</h1>
+        <p>Discover the art of candle making and explore our premium services</p>
+    </header>
+
+    <div class="container">
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <img src="./images/PhotoRoom-20250105_174654.png" alt="Custom Candle Making">
+                <div class="service-card-content">
+                    <h3>Custom Candle Making</h3>
+                    <p>Create personalized candles with your favorite scents, colors, and designs.</p>
+                    <button data-title="Custom Candle Making" 
+                            data-description="We offer custom candle making services where you can design and create candles tailored to your preferences. Choose from a wide variety of scents, colors, and designs to suit your mood or occasion.">Learn More</button>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+                <img src="./images/PhotoRoom-20250105_180729.png" alt="Candle Workshops">
+                <div class="service-card-content">
+                    <h3>Candle Workshops</h3>
+                    <p>Join our workshops to learn the art of candle making from experts.</p>
+                    <button data-title="Candle Workshops" 
+                            data-description="Our candle workshops provide hands-on experiences where you can learn the art of candle making from our expert instructors. Perfect for beginners and enthusiasts alike.">Learn More</button>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+                <img src="./images/PhotoRoom-20250105_190221.png" alt="Scented Candle Collections">
+                <div class="service-card-content">
+                    <h3>Scented Collections</h3>
+                    <p>Explore our exclusive range of aromatic candles for every mood and occasion.</p>
+                    <button data-title="Scented Candle Collections" 
+                            data-description="Discover our exclusive scented candle collections. Each candle is crafted to create the perfect ambiance and enhance your space with delightful aromas.">Learn More</button>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card">
+                <img src="./images/PhotoRoom-20250112_191731.png" alt="Gift Packages">
+                <div class="service-card-content">
+                    <h3>Aroma Gift Packages</h3>
+                    <p>Surprise your loved ones with beautifully crafted candle gift sets experienced by Aroma family.</p>
+                    <button data-title="Gift Packages" 
+                            data-description="Our candle gift packages are thoughtfully crafted to bring joy to your loved ones. Perfect for birthdays, anniversaries, and other special occasions.">Learn More</button>
+                </div>
+            </div>
+        
+        <!-- Service 5 -->
+        <div class="service-card">
+            <img src="./images/PhotoRoom-20250105_183737.png" alt="Mogra Candles">
+            <div class="service-card-content">
+                <h3>Bubble Packages</h3>
+                <p>Bubble fragrance packages can include oils, perfumes, and air fresheners that use the scent of the bubble candle</p>
+                <button data-title="Gift Packages" 
+                        data-description="Our candle gift packages are thoughtfully crafted to bring joy to your loved ones. Perfect for birthdays, anniversaries, and other special occasions.">Learn More</button>
+            </div>
+        </div>
+    
+
+    <!-- Service 6 -->
+    <div class="service-card">
+        <img src="./images/PhotoRoom-20250105_181320.png" alt="Party Packages">
+        <div class="service-card-content">
+            <h3>Party Packages</h3>
+            <p>Some elements included in a party decoration package like ballonons, banners, crepe paper, cutouts and props, party favors.</p>
+            <button data-title="Gift Packages" 
+                    data-description="Our candle gift packages are thoughtfully crafted to bring joy to your loved ones. Perfect for birthdays, anniversaries, and other special occasions.">Learn More</button>
+        </div>
+    </div>
+</div>
+
+        <div id="details" class="details-section" style="display: none;">
+            <h2 id="details-title"></h2>
+            <p id="details-description"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Candle Co. | Designed with ❤️ Sparkling Aroma | <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.service-card-content button').forEach(button => {
+            button.addEventListener('click', () => {
+                const title = button.getAttribute('data-title');
+                const description = button.getAttribute('data-description');
+                
+                document.getElementById('details-title').textContent = title;
+                document.getElementById('details-description').textContent = description;
+                
+                document.getElementById('details').style.display = 'block';
+                document.getElementById('details').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

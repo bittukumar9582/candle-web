@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Candle Store</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Header */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        header .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        header .nav ul li {
+            display: inline;
+        }
+
+        header .nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 10px;
+            transition: background 0.3s;
+        }
+
+        header .nav ul li a:hover {
+            background: #f79553;
+            border-radius: 5px;
+        }
+
+        /* Filters Section */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .filters button {
+            padding: 10px 20px;
+            border: none;
+            background: #333;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .filters button:hover {
+            background: #f79553;
+        }
+
+        /* Products Section */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .product-card .details {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .product-card h3 {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+
+        .product-card .price {
+            color: #f79553;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .product-card button {
+            padding: 10px 15px;
+            border: none;
+            background: #333;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .product-card button:hover {
+            background: #f79553;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #f79553;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav">
+            <h1>Roasted Candle Store</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Filters -->
+    <div class="container">
+        <h2>Our Products</h2>
+        <div class="filters">
+            <button data-filter="all">All</button>
+            <button data-filter="candles">Candles</button>
+            <button data-filter="accessories">Accessories</button>
+        </div>
+    </div>
+
+    <!-- Products -->
+    <div class="container product-grid">
+        <!-- Product 1 -->
+        <div class="product-card" data-category="candles">
+            <img src="./images/roasted.jpg" alt="Roasted Candle">
+            <div class="details">
+                <h3>Roasted Candle</h3>
+                <p class="price">Rs. 799</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="product-card" data-category="candles">
+            <img src="./images/roasted2.jpg" alt="Coco Candle">
+            <div class="details">
+                <h3>Coco Candle</h3>
+                <p class="price">Rs. 699</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+        <!-- Product 3 -->
+        <div class="product-card" data-category="accessories">
+            <img src="./images/roasted3.webp" alt="Roasted Chestnuts Candles">
+            <div class="details">
+                <h3>Roasted Chestnuts Candle</h3>
+                <p class="price">Rs. 499</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Roasted Candle Store. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const filterButtons = document.querySelectorAll(".filters button");
+            const productCards = document.querySelectorAll(".product-card");
+            const cart = [];
+
+            // Filter functionality
+            filterButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const filter = button.getAttribute("data-filter");
+                    productCards.forEach(card => {
+                        const category = card.getAttribute("data-category");
+                        card.style.display = filter === "all" || filter === category ? "block" : "none";
+                    });
+                });
+            });
+
+            // Add to Cart functionality
+            productCards.forEach(card => {
+                const addButton = card.querySelector("button");
+                addButton.addEventListener("click", () => {
+                    const productName = card.querySelector("h3").innerText;
+                    const productPrice = card.querySelector(".price").innerText;
+                    cart.push({ name: productName, price: productPrice });
+                    alert(`${productName} added to cart!`);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

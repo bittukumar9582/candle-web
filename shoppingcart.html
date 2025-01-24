@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart and Checkout</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fbd3c4;
+            color: #333;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        a, button {
+            text-decoration: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Cart Table */
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background: #c7a2a5;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .cart-table th, .cart-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .cart-table th {
+            background-color: #f47d7d;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .cart-table img {
+            width: 50px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quantity-controls button {
+            padding: 5px 10px;
+            background-color: #ddd;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .quantity-controls span {
+            font-weight: bold;
+        }
+
+        .remove-btn {
+            background-color: #ff4d4f;
+            color: #fff;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+        }
+
+        .remove-btn:hover {
+            background-color: #d9363e;
+        }
+
+        /* Total Section */
+        .total-section {
+            text-align: right;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Checkout Form */
+        .checkout-form {
+            background: #d3d0f9;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .checkout-form label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        .checkout-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .checkout-form button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .checkout-form button:hover {
+            background-color: #45a049;
+        }
+
+        /* Buttons */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .cart-table img {
+                width: 40px;
+            }
+
+            .cart-table th, .cart-table td {
+                font-size: 0.85rem;
+                padding: 10px;
+            }
+
+            .quantity-controls button {
+                padding: 5px;
+                font-size: 0.8rem;
+            }
+
+            .total-section {
+                font-size: 1rem;
+            }
+
+            .button {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+            }
+
+            .checkout-form input {
+                padding: 8px;
+            }
+
+            .checkout-form button {
+                font-size: 0.9rem;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Shopping Cart Section -->
+        <div id="cart-section">
+            <h1>Shopping Cart</h1>
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                    <!-- Cart items will be dynamically inserted here -->
+                </tbody>
+            </table>
+            <div class="total-section">
+                <p>Total: ₹<span id="cart-total">0</span></p>
+            </div>
+            <a href="#" class="button" id="proceed-to-checkout">Proceed to Checkout</a>
+        </div>
+
+        <!-- Checkout Section -->
+        <div id="checkout-section" class="hidden">
+            <h1>Checkout</h1>
+            <div id="cart-summary">
+                <!-- Cart summary will be dynamically inserted here -->
+            </div>
+            <h2>Payment Details</h2>
+            <form id="payment-form" class="checkout-form">
+                <label for="card-name">Card Name:</label>
+                <input type="text" id="card-name" required>
+                <label for="card-number">Card Number:</label>
+                <input type="text" id="card-number" required>
+                <label for="expiry-date">Expiry Date:</label>
+                <input type="text" id="expiry-date" required>
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" required>
+                <button type="submit">Submit Payment</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const cart = [
+            { id: 1, name: "Bubble Candle", price: 200, quantity: 1, image: "https://via.placeholder.com/50" },
+            { id: 2, name: "Pastel Candle", price: 199, quantity: 1, image: "https://via.placeholder.com/50" }
+        ];
+
+        const renderCart = () => {
+            const cartItems = document.getElementById("cart-items");
+            cartItems.innerHTML = "";
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const subtotal = item.price * item.quantity;
+                total += subtotal;
+
+                const row = `
+                    <tr>
+                        <td><img src="${item.image}" alt="${item.name}"></td>
+                        <td>${item.name}</td>
+                        <td>₹${item.price}</td>
+                        <td>
+                            <div class="quantity-controls">
+                                <button class="decrease-btn" data-index="${index}">-</button>
+                                <span>${item.quantity}</span>
+                                <button class="increase-btn" data-index="${index}">+</button>
+                            </div>
+                        </td>
+                        <td>₹${subtotal}</td>
+                        <td><button class="remove-btn" data-index="${index}">Remove</button></td>
+                    </tr>
+                `;
+                cartItems.insertAdjacentHTML("beforeend", row);
+            });
+
+            document.getElementById("cart-total").textContent = total;
+        };
+
+        const updateQuantity = (index, action) => {
+            if (action === "increase") cart[index].quantity++;
+            else if (action === "decrease" && cart[index].quantity > 1) cart[index].quantity--;
+            renderCart();
+        };
+
+        const removeItem = (index) => cart.splice(index, 1) && renderCart();
+
+        document.addEventListener("click", (e) => {
+            if (e.target.classList.contains("increase-btn")) updateQuantity(e.target.dataset.index, "increase");
+            if (e.target.classList.contains("decrease-btn")) updateQuantity(e.target.dataset.index, "decrease");
+            if (e.target.classList.contains("remove-btn")) removeItem(e.target.dataset.index);
+        });
+
+        document.getElementById("proceed-to-checkout").addEventListener("click", (e) => {
+            e.preventDefault();
+            if (cart.length > 0) {
+                const cartSummary = document.getElementById("cart-summary");
+                let summary = "<ul>";
+                cart.forEach(item => summary += `<li>${item.name} - ₹${item.price} x ${item.quantity}</li>`);
+                cartSummary.innerHTML = `${summary}</ul><p>Total: ₹<strong>${cart.reduce((t, i) => t + i.price * i.quantity, 0)}</strong></p>`;
+                document.getElementById("cart-section").classList.add("hidden");
+                document.getElementById("checkout-section").classList.remove("hidden");
+            } else alert("Your cart is empty!");
+        });
+
+        document.getElementById("payment-form").addEventListener("submit", e => {
+            e.preventDefault();
+            alert("Payment Successful! Thank you.");
+        });
+
+        renderCart();
+    </script>
+</body>
+</html>
+ 

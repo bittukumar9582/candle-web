@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Options</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .payment-options {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    button.paypal {
+      background-color: #ffc439;
+      color: black;
+    }
+    button.paypal:hover {
+      background-color: #ffb100;
+    }
+    button.upi {
+      background-color: #4caf50;
+      color: white;
+    }
+    button.upi:hover {
+      background-color: #45a045;
+    }
+    button.netbanking {
+      background-color: #2196f3;
+      color: white;
+    }
+    button.netbanking:hover {
+      background-color: #1e87e5;
+    }
+    button.cod {
+      background-color: #ff5722;
+      color: white;
+    }
+    button.cod:hover {
+      background-color: #e64a19;
+    }
+    .upi-container {
+      display: none;
+      margin-top: 20px;
+    }
+    img.qr-code {
+      max-width: 200px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Select Your Payment Method</h1>
+  <div class="payment-options">
+    <button class="paypal" onclick="payWithPayPal()">Pay with PayPal</button>
+    <button class="upi" onclick="payWithUPI()">Pay with UPI</button>
+    <button class="netbanking" onclick="payWithNetBanking()">Pay with Net Banking</button>
+    <button class="cod" onclick="payWithCOD()">Cash on Delivery</button>
+  </div>
+
+  <!-- UPI Payment Container -->
+  <div id="upi-container" class="upi-container">
+    <h2>UPI Payment</h2>
+    <p>Scan the QR code below or click the link to make a payment.</p>
+    <img src="upi-qr-code.png" alt="UPI QR Code" class="qr-code">
+    <p><strong>UPI ID:</strong> user@upi</p>
+    <a id="upi-link" href="upi://pay?pa=user@upi&pn=Sparkling Aroma Candles&mc=0000&tid=123456789&tr=Order001&tn=Candle Payment&am=10.99&cu=INR" target="_blank">Click here to pay via UPI</a>
+  </div>
+
+  <script>
+    function payWithPayPal() {
+      alert("Redirecting to PayPal...");
+      // Replace the below URL with your actual PayPal payment URL
+      window.location.href = "https://www.paypal.com";  //here link provide
+    }
+
+    function payWithUPI() {
+      const upiContainer = document.getElementById("upi-container");
+      upiContainer.style.display = "block"; // Show the UPI container
+    }
+
+    function payWithNetBanking() {
+      alert("Redirecting to Net Banking options...");
+      // Replace the below URL with your actual Net Banking page URL
+      window.location.href = "https://www.example.com/netbanking";
+    }
+
+    function payWithCOD() {
+      alert("Cash on Delivery selected. Your order will be processed.");
+      // Redirect to an order confirmation page for COD
+      window.location.href = "order-confirmation.html";
+    }
+  </script>
+</body>
+</html>

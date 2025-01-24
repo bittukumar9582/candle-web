@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - Sparkling Aroma Candle</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f4f4f8;
+    color: #222;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: #2a9d8f;
+}
+
+a:hover {
+    color: #1e806b;
+}
+
+button {
+    background-color: #2a9d8f;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #21867a;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Header Styles */
+header {
+    background-color: #fff;
+    color: #222;
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.cart-wishlist button {
+    margin-left: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 0 0 250px;
+}
+
+.sidebar h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.sidebar ul li {
+    margin-bottom: 12px;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 10px 15px;
+    background-color: #f4f4f8;
+    color: #333;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #e9f5f4;
+    color: #2a9d8f;
+}
+
+/* Main Content Section */
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: initial;
+    gap: 30px;
+}
+
+/* Account Content Styles */
+.account-content {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.account-content h2 {
+    font-size: 24px;
+    color: #222;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f4f4f8;
+    padding-bottom: 8px;
+}
+
+.account-content p {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+/* Form Styles */
+form label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="password"],
+form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #2a9d8f;
+    outline: none;
+}
+
+form button[type="submit"] {
+    background-color: #28a745;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+form button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+form button[type="button"] {
+    background-color: #dc3545;
+}
+
+form button[type="button"]:hover {
+    background-color: #c82333;
+}
+
+/* Order List Styles */
+.order-list {
+    margin-top: 20px;
+}
+
+.order-item {
+    background-color: #f9f9fc;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.order-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-item p {
+    margin-bottom: 5px;
+}
+
+.order-item button {
+    margin-top: 10px;
+}
+
+/* Address Section */
+.address-item {
+    background-color: #f8f8fc;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.address-item button {
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2a9d8f;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    main {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .sidebar {
+        flex: 1;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    form button[type="submit"],
+    form button[type="button"] {
+        width: 48%;
+    }
+}
+    
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Sparkling Aroma Candle</h1>
+            <div class="cart-wishlist">
+                <button id="cart-btn">Cart (0)</button>
+                <button id="wishlist-btn">Wishlist (0)</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="account-section">
+            <div class="sidebar">
+                <h3>Account</h3>
+                <ul>
+                    <li><a href="#profile">Profile Info</a></li>
+                    <li><a href="#orders">Order History</a></li>
+                    <li><a href="#address">Address Book</a></li>
+                    <li><a href="#settings">Account Settings</a></li>
+                </ul>
+            </div>
+
+            <div class="account-content">
+                <section id="profile">
+                    <h2>Profile Info</h2>
+                    <p><strong>Name:</strong> <span id="profile-name">John Doe</span></p>
+                    <p><strong>Email:</strong> <span id="profile-email">johndoe@example.com</span></p>
+                    <p><strong>Phone:</strong> <span id="profile-phone">+1234567890</span></p>
+                    <button id="edit-profile-btn">Edit Profile</button>
+
+                    <form id="edit-profile-form" class="hidden">
+                        <label for="new-name">Name:</label>
+                        <input type="text" id="new-name" value="John Doe" required>
+
+                        <label for="new-email">Email:</label>
+                        <input type="email" id="new-email" value="johndoe@example.com" required>
+
+                        <label for="new-phone">Phone:</label>
+                        <input type="tel" id="new-phone" value="+1234567890" required>
+
+                        <button type="submit" id="save-profile-btn">Save</button>
+                        <button type="button" id="cancel-profile-btn">Cancel</button>
+                    </form>
+                </section>
+
+                <section id="orders">
+                    <h2>Order History</h2>
+                    <div class="order-list">
+                        <div class="order-item">
+                            <p><strong>Order #1234</strong></p>
+                            <p>Date: 12th Jan 2025</p>
+                            <p>Status: Delivered</p>
+                            <button>View Details</button>
+                        </div>
+                        <div class="order-item">
+                            <p><strong>Order #1235</strong></p>
+                            <p>Date: 10th Jan 2025</p>
+                            <p>Status: In Transit</p>
+                            <button>View Details</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="address">
+                    <h2>Address Book</h2>
+                    <div class="address-item">
+                        <p><strong>Home Address:</strong></p>
+                        <p id="home-address">1234 Candle Lane, Candle City, ABC</p>
+                        <button id="edit-address-btn">Edit Address</button>
+                    </div>
+                    <form id="edit-address-form" class="hidden">
+                        <label for="new-address">Address:</label>
+                        <textarea id="new-address" required>1234 Candle Lane, Candle City, ABC</textarea>
+
+                        <button type="submit" id="save-address-btn">Save</button>
+                        <button type="button" id="cancel-address-btn">Cancel</button>
+                    </form>
+                    <button id="add-new-address-btn">Add New Address</button>
+                    <form id="add-new-address-form" class="hidden">
+                        <label for="new-address-detail">New Address:</label>
+                        <textarea id="new-address-detail" required></textarea>
+
+                        <button type="submit" id="save-new-address-btn">Save Address</button>
+                        <button type="button" id="cancel-new-address-btn">Cancel</button>
+                    </form>
+                </section>
+
+                <section id="settings">
+                    <h2>Account Settings</h2>
+                    <div class="setting-item">
+                        <p><strong>Change Password:</strong></p>
+                        <button id="change-password-btn">Change Password</button>
+                    </div>
+                    <form id="change-password-form" class="hidden">
+                        <label for="new-password">New Password:</label>
+                        <input type="password" id="new-password" required>
+
+                        <button type="submit" id="save-password-btn">Save New Password</button>
+                        <button type="button" id="cancel-password-btn">Cancel</button>
+                    </form>
+                    <div class="setting-item">
+                        <p><strong>Privacy Settings:</strong></p>
+                        <button id="update-settings-btn">Update Settings</button>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Sparkling Aroma Candle. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    // Edit Profile
+    const editProfileButton = document.querySelector('#edit-profile-btn');
+    const editProfileForm = document.querySelector('#edit-profile-form');
+    const saveProfileButton = document.querySelector('#save-profile-btn');
+    const cancelProfileButton = document.querySelector('#cancel-profile-btn');
+    
+    editProfileButton.addEventListener('click', () => {
+        editProfileForm.classList.remove('hidden');
+        document.querySelector('#profile-name').style.display = 'none';
+        document.querySelector('#profile-email').style.display = 'none';
+        document.querySelector('#profile-phone').style.display = 'none';
+        editProfileButton.style.display = 'none';
+    });
+
+    cancelProfileButton.addEventListener('click', () => {
+        editProfileForm.classList.add('hidden');
+        document.querySelector('#profile-name').style.display = 'inline';
+        document.querySelector('#profile-email').style.display = 'inline';
+        document.querySelector('#profile-phone').style.display = 'inline';
+        editProfileButton.style.display = 'inline';
+    });
+
+    saveProfileButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        const newName = document.querySelector('#new-name').value;
+        const newEmail = document.querySelector('#new-email').value;
+        const newPhone = document.querySelector('#new-phone').value;
+
+        document.querySelector('#profile-name').textContent = newName;
+        document.querySelector('#profile-email').textContent = newEmail;
+        document.querySelector('#profile-phone').textContent = newPhone;
+
+        editProfileForm.classList.add('hidden');
+        document.querySelector('#profile-name').style.display = 'inline';
+        document.querySelector('#profile-email').style.display = 'inline';
+        document.querySelector('#profile-phone').style.display = 'inline';
+        editProfileButton.style.display = 'inline';
+    });
+
+    // Edit Address
+    const editAddressButton = document.querySelector('#edit-address-btn');
+    const editAddressForm = document.querySelector('#edit-address-form');
+    const saveAddressButton = document.querySelector('#save-address-btn');
+    const cancelAddressButton = document.querySelector('#cancel-address-btn');
+
+    editAddressButton.addEventListener('click', () => {
+        editAddressForm.classList.remove('hidden');
+        document.querySelector('#home-address').style.display = 'none';
+        editAddressButton.style.display = 'none';
+    });
+
+    cancelAddressButton.addEventListener('click', () => {
+        editAddressForm.classList.add('hidden');
+        document.querySelector('#home-address').style.display = 'block';
+        editAddressButton.style.display = 'block';
+    });
+
+    saveAddressButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        const newAddress = document.querySelector('#new-address').value;
+        document.querySelector('#home-address').textContent = newAddress;
+
+        editAddressForm.classList.add('hidden');
+        document.querySelector('#home-address').style.display = 'block';
+        editAddressButton.style.display = 'block';
+    });
+
+    // Add New Address
+    const addNewAddressButton = document.querySelector('#add-new-address-btn');
+    const addNewAddressForm = document.querySelector('#add-new-address-form');
+    const saveNewAddressButton = document.querySelector('#save-new-address-btn');
+    const cancelNewAddressButton = document.querySelector('#cancel-new-address-btn');
+
+    addNewAddressButton.addEventListener('click', () => {
+        addNewAddressForm.classList.remove('hidden');
+        addNewAddressButton.style.display = 'none';
+    });
+
+    cancelNewAddressButton.addEventListener('click', () => {
+        addNewAddressForm.classList.add('hidden');
+        addNewAddressButton.style.display = 'inline';
+    });
+
+    saveNewAddressButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        const newAddressDetail = document.querySelector('#new-address-detail').value;
+        // For demonstration, we can add the new address to a list or perform other actions
+
+        alert('New Address Added: ' + newAddressDetail); // You can store this in an actual address list
+
+        addNewAddressForm.classList.add('hidden');
+        addNewAddressButton.style.display = 'inline';
+    });
+
+    // Change Password
+    const changePasswordButton = document.querySelector('#change-password-btn');
+    const changePasswordForm = document.querySelector('#change-password-form');
+    const savePasswordButton = document.querySelector('#save-password-btn');
+    const cancelPasswordButton = document.querySelector('#cancel-password-btn');
+
+    changePasswordButton.addEventListener('click', () => {
+        changePasswordForm.classList.remove('hidden');
+    });
+
+    cancelPasswordButton.addEventListener('click', () => {
+        changePasswordForm.classList.add('hidden');
+    });
+
+    savePasswordButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        const newPassword = document.querySelector('#new-password').value;
+
+        alert('Password Changed to: ' + newPassword); // You can perform actual password change logic here
+
+        changePasswordForm.classList.add('hidden');
+    });
+
+    // Update Privacy Settings
+    const updateSettingsButton = document.querySelector('#update-settings-btn');
+
+    updateSettingsButton.addEventListener('click', () => {
+        alert('Privacy Settings Updated!');
+    });
+});
+
+    </script>
+</body>
+
+</html>
